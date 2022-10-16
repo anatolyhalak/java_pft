@@ -31,6 +31,6 @@ public class PointTests {
     Point p1 = new Point(2.0, 5.0 );
     Point p2 = new Point(3.0, 5.0 );
     assertEquals(p2.distance(p1), 1.0);
-    System.out.println("Расстояние между двумя точками вычисляется не верно: " + 1 + " == " + 1);
+    System.out.println("Расстояние между двумя точками вычисляется правильно: " + 1 + " == " + 1);
   }
 }
