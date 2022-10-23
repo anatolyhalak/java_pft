@@ -10,6 +10,7 @@ import static org.testng.Assert.assertTrue;
 public class ApplicationManager {
 
   public WebDriver wd;
+  private AddContactHelper addContactHelper;
   private ContactHelper contactHelper;
   public SessionHelper sessionHelper;
   private NavigationHelper navigationHelper;
@@ -20,6 +21,7 @@ public class ApplicationManager {
     wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     wd.get("http://localhost/addressbook/index.php");
     contactHelper = new ContactHelper(wd);
+    addContactHelper = new AddContactHelper(wd);
     groupHelper = new GroupHelper(wd);
     navigationHelper = new NavigationHelper(wd);
     sessionHelper = new SessionHelper(wd);
@@ -27,23 +29,10 @@ public class ApplicationManager {
   }
 
 
-
   public void stop() {
     wd.quit();
   }
 
-  private void login(String username, String password) {
-    wd.findElement(By.name("user")).click();
-    wd.findElement(By.name("user")).clear();
-    wd.findElement(By.name("user")).sendKeys(username);
-    wd.findElement(By.name("pass")).clear();
-    wd.findElement(By.name("pass")).sendKeys(password);
-    wd.findElement(By.xpath("//input[@value='Login']")).click();
-  }
-
-  public void goToContactPage() {
-    wd.findElement(By.linkText("add new")).click();
-  }
 
   public boolean isElementPresent(By by) {
     try {
@@ -53,7 +42,6 @@ public class ApplicationManager {
       return false;
     }
   }
-
 
 
   public GroupHelper getGroupHelper() {
@@ -76,5 +64,9 @@ public class ApplicationManager {
 
   public ContactHelper getContactHelper() {
     return contactHelper;
+  }
+
+  public AddContactHelper getAddContactHelper() {
+    return addContactHelper;
   }
 }
