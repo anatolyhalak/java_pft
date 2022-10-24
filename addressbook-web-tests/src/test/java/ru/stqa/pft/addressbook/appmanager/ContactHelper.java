@@ -8,12 +8,8 @@ import ru.stqa.pft.addressbook.model.ContactData;
 import static org.testng.Assert.assertTrue;
 
 public class ContactHelper {
-  private WebDriver wd;
+  public WebDriver wd;
   public boolean acceptNextAlert = true;
-
-  public ContactHelper(WebDriver wd) {
-    this.wd = wd;
-  }
 
   public void returnToContactPage() {
     wd.findElement(By.linkText("home page")).click();
