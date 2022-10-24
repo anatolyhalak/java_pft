@@ -5,7 +5,7 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 
 public class HelperBase {
-  public WebDriver wd;
+  protected WebDriver wd;
 
   public HelperBase(WebDriver wd) {
     this.wd = wd;
@@ -14,6 +14,7 @@ public class HelperBase {
   protected void click(By locator) {
     wd.findElement(locator).click();
   }
+
 
   protected void type(By locator, String text) {
     click(locator);
@@ -29,4 +30,5 @@ public class HelperBase {
       return false;
     }
   }
+
 }

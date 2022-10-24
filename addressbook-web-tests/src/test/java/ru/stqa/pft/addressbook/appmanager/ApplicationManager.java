@@ -27,7 +27,6 @@ public class ApplicationManager {
   }
 
 
-
   public void stop() {
     wd.quit();
   }
@@ -53,7 +52,6 @@ public class ApplicationManager {
       return false;
     }
   }
-
 
 
   public GroupHelper getGroupHelper() {
