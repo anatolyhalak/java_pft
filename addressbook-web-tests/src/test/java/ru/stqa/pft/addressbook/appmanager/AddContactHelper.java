@@ -7,7 +7,7 @@ public class AddContactHelper {
   private WebDriver wd;
 
   public AddContactHelper(WebDriver wd) {
-    this.wd = wd;
+    this. wd = wd;
   }
 
   public void goToContactPage() {
