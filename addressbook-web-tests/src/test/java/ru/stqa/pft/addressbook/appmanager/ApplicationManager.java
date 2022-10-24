@@ -28,9 +28,21 @@ public class ApplicationManager {
     sessionHelper.login("admin", "secret");
   }
 
+
   public void stop() {
     wd.quit();
   }
+
+
+  public boolean isElementPresent(By by) {
+    try {
+      wd.findElement(by);
+      return true;
+    } catch (NoSuchElementException e) {
+      return false;
+    }
+  }
+
 
   public GroupHelper getGroupHelper() {
     return groupHelper;
@@ -38,6 +50,16 @@ public class ApplicationManager {
 
   public NavigationHelper getNavigationHelper() {
     return navigationHelper;
+  }
+
+
+  private boolean isAlertPresent() {
+    try {
+      wd.switchTo().alert();
+      return true;
+    } catch (NoAlertPresentException e) {
+      return false;
+    }
   }
 
   public ContactHelper getContactHelper() {

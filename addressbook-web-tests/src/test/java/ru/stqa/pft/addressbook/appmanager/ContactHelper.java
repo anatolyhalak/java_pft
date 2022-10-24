@@ -16,30 +16,28 @@ public class ContactHelper {
   }
 
   public void returnToContactPage() {
-    click(By.linkText("home page"));
+    wd.findElement(By.linkText("home page")).click();
   }
 
   public void submitContactCreation() {
-    click(By.xpath("//div[@id='content']/form/input[21]"));
-  }
-
-  private void click(By locator) {
-    wd.findElement(locator).click();
+    wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
   }
 
   public void fillContactForm(ContactData contactData) {
-    type(By.name("firstname"), contactData.getFirstname());
-    type(By.name("lastname"), contactData.getLastname());
+    wd.findElement(By.name("firstname")).click();
+    wd.findElement(By.name("firstname")).clear();
+    wd.findElement(By.name("firstname")).sendKeys(contactData.getFirstname());
+    wd.findElement(By.name("lastname")).click();
+    wd.findElement(By.name("lastname")).clear();
+    wd.findElement(By.name("lastname")).sendKeys(contactData.getLastname());
     wd.findElement(By.name("nickname")).clear();
     wd.findElement(By.name("nickname")).sendKeys(contactData.getNickname());
-    type(By.name("mobile"), contactData.getMobile());
-    type(By.name("email"), contactData.getEmail());
-  }
-
-  private void type(By locator, String text) {
-    click(locator);
-    wd.findElement(locator).clear();
-    wd.findElement(locator).sendKeys(text);
+    wd.findElement(By.name("mobile")).click();
+    wd.findElement(By.name("mobile")).clear();
+    wd.findElement(By.name("mobile")).sendKeys(contactData.getMobile());
+    wd.findElement(By.name("email")).click();
+    wd.findElement(By.name("email")).clear();
+    wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
   }
 
   protected String closeAlertAndGetItsText() {
@@ -58,11 +56,11 @@ public class ContactHelper {
   }
 
   public void deleteSelectedContact() {
-    click(By.xpath("//input[@value='Delete']"));
+    wd.findElement(By.xpath("//input[@value='Delete']")).click();
     assertTrue(closeAlertAndGetItsText().matches("^Delete 1 addresses[\\s\\S]$"));
   }
 
   public void selectContact() {
-    click(By.name("selected[]"));
+    wd.findElement(By.name("selected[]")).click();
   }
 }
