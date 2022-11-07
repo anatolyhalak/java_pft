@@ -76,7 +76,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void createContact(ContactData contact, boolean b) {
-    fillContactForm(contact), true;
+    //fillContactForm(contact), true;
     submitContactCreation();
     returnToContactPage();
   }
