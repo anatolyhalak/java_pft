@@ -58,6 +58,10 @@ public class ApplicationManager {
     wd.findElement(By.linkText("add new")).click();
   }
 
+  public void goToNewContactPage() {
+    wd.findElement(By.linkText("home")).click();
+  }
+
   public boolean isElementPresent(By by) {
     try {
       wd.findElement(by);
